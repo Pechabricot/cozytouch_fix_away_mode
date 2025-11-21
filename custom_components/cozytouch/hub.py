@@ -595,7 +595,7 @@ class Hub(DataUpdateCoordinator):
                     "Content-Type": "application/json",
                 },
             ) as response:
-                if response.status == 204:
+                if response.status in (200, 204):
                     if timestampStart is not None and timestampEnd is not None:
                         valueTimestamps = (
                             "[" + str(timestampStart) + "," + str(timestampEnd) + "]"
